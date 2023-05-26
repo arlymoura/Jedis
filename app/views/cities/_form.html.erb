@@ -1,0 +1,52 @@
+<%= form_for @city do |form| %>
+  <% if city.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(city.errors.count, "error") %> proibiu este Municipe de ser salvo:</h2>
+
+      <ul>
+        <% city.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group col-md-4">
+
+    <div class="form-group">
+      <label for="InputName">Nome Completo</label>
+      <%= form.text_field :full_name, placeholder: "John Doe", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <label for="InputCPF">CPF</label>
+      <%= form.text_field :cpf, placeholder: "000.000.000-00", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <label for="InputCNS">CNS</label>
+      <%= form.text_field :cns, placeholder: "000.000.000-00", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <label for="InputEmail">Email</label>
+      <%= form.email_field :email, placeholder: "email@email.com", class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <label for="InputBirth_date">Data de nascimento</label>
+      <%= form.date_field :birth_date, value: @city.birth_date, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <label for="InputPhoneNumber">Celular</label>
+      <%= form.text_field :phone_number, placeholder: "99 99999-9999", class: 'form-control' %>
+    </div>
+    <br>
+
+    <div class="form-group form-button float-end">
+      <div class="float-end">
+        <%= form.submit !request.path.include?('edit') ? "Criar Municipe" : "Editar Municipe", class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+<% end %>

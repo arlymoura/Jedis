@@ -1,0 +1,43 @@
+<h1>Lista de Municipes</h1>
+
+<div class="form-group form-button ">
+  <div class="col float-end">
+    <%= link_to "Novo Municipe", new_city_path, class: "btn btn-success" %>
+  </div>
+  <div class="col">
+    <%= form_with( url: cities_path ,method: :get , remote: true) do |f| %>
+      <%= f.text_field :search %>
+      <%= f.submit "Pesquisar", class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
+<br>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col"># </th>
+      <th scope="col">Name </th>
+      <th scope="col">CPF </th>
+      <th scope="col">CNS </th>
+      <th scope="col">Telefone </th>
+      <th scope="col">Status </th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    </tr>
+    <% @cities.each do |city| %>
+      <tr>
+        <td scope="row"><%= city.id %></td>
+        <td><%= city.full_name %></td>
+        <td><%= "#{city.cpf.first(3)}.***.***-#{city.cpf.last(2)}"%></td>
+        <td><%= "#{city.cns.first(3)}************"%></td>
+        <td><%= "(#{city.phone_number.first(2)}) *****-#{city.phone_number.last(4)}"%></td>
+        <td> <%= city.active ? "Ativo" : "Inativo" %> </td>
+        <td>
+          <%= link_to "Editar", edit_city_path(city.id) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
