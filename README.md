@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projeto Feito com banco sqlite.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+Paar usar postgres é só colocar o configuração no .env, pode ser copiado do .env.sample
+Depois colocar as envs do TWILIO.
+Rodar bundle ou subir o docker
+Rodar as migrações
+tem um seeds com um carga inicial também.
 
 * ...
