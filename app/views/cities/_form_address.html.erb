@@ -1,0 +1,37 @@
+<h3>Endereço</h3>
+ <%= f.fields_for :address do |address_form| %>
+
+  <div class="row">
+    <div class="col">
+      <label for="InputName">CEP</label>
+      <%= address_form.text_field :cep, placeholder: "0000000", class: 'form-control' %>
+    </div>
+    <div class="col">
+      <label for="InputName">Rua</label>
+      <%= address_form.text_field :street, placeholder: "Rua Qualquer", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="InputName">Bairro</label>
+      <%= address_form.text_field :neighborhood, placeholder: "Centro", class: 'form-control' %>
+    </div>
+    <div class="col">
+      <label for="InputName">Cidade</label>
+      <%= address_form.text_field :city_name, placeholder: "Teresina", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label for="InputName">UF</label>
+      <%= address_form.text_field :state, placeholder: "PI", class: 'form-control' %>
+    </div>
+    <div class="col">
+      <label for="InputName">Complemento</label>
+      <%= address_form.text_field :complement, placeholder: "complemento", class: 'form-control' %>
+    </div>
+  </div>
+<% end %>
+

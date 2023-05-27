@@ -7,7 +7,7 @@ RSpec.describe City do
 
   let(:full_name) { 'full_name' }
   let(:cpf) { '98835307066' }
-  let(:cns) { '187329617340002' }
+  let(:cns) { '906915293010008' }
   let(:email) { 'test@test.com' }
   let(:phone_number) { '11999999999' }
   let(:birth_date) { Time.current.to_s }
@@ -26,6 +26,29 @@ RSpec.describe City do
   context 'when all attributes is valid' do
     it 'is valid with valid attributes' do
       expect(response).to be_valid
+    end
+
+    context 'when addres is present' do
+      let(:address) do
+        Address.new(
+          cep: '00000000', street: 'street', neighborhood: 'neighborhood', city_name: 'city_name', state: 'state'
+        )
+      end
+      let(:params) do
+        {
+          full_name:    full_name,
+          cpf:          cpf,
+          cns:          cns,
+          email:        email,
+          phone_number: phone_number,
+          birth_date:   birth_date,
+          address:      address
+        }
+      end
+
+      it 'is valid with valid attributes' do
+        expect(response).to be_valid
+      end
     end
   end
 

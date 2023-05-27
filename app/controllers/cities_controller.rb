@@ -4,11 +4,12 @@ class CitiesController < ApplicationController
   before_action :set_city, only: %i[edit update]
 
   def index
-    @cities = City.all
+    @cities = City.all.includes(:address)
   end
 
   def new
     @city = City.new
+    @city.build_address
   end
 
   def edit; end
@@ -46,6 +47,7 @@ class CitiesController < ApplicationController
   end
 
   def city_params
-    params.require(:city).permit(:full_name, :cpf, :cns, :email, :phone_number, :birth_date, :active)
+    params.require(:city).permit(:full_name, :cpf, :cns, :email, :phone_number, :birth_date, :active, :picture,
+                                 address_attributes: %i[id cep street neighborhood city_name state])
   end
 end
