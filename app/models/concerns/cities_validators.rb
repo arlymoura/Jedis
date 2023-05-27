@@ -3,6 +3,8 @@
 module CitiesValidators
   extend ActiveSupport::Concern
 
+  include CnsValidator
+
   def cpf_is_valid?
     return errors.add(:cpf, 'CPF invalido') unless CPF.valid?(cpf)
   end
@@ -25,5 +27,9 @@ module CitiesValidators
 
     errors.add(:birth_date,
                'Data de nascimento invalida')
+  end
+
+  def cns_is_valid?
+    return errors.add(:cns, 'CNS invalido') unless CnsValidator.validate(cns)
   end
 end
