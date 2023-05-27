@@ -80,3 +80,5 @@ gem 'mini_magick', '~> 4.8'
 gem 'ransack'
 gem 'will_paginate', '~> 3.3'
 gem 'will_paginate-bootstrap'
+gem 'twilio-ruby'
+gem "dotenv-rails"
