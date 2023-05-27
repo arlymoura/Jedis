@@ -73,7 +73,10 @@ group :development do
   gem 'web-console'
 end
 
-gem 'rails-i18n', '~> 7.0.0'
 gem 'bootstrap', '~> 5.1.3'
+gem 'rails-i18n', '~> 7.0.0'
 gem 'cpf_cnpj'
 gem 'mini_magick', '~> 4.8'
+gem 'ransack'
+gem 'will_paginate', '~> 3.3'
+gem 'will_paginate-bootstrap'

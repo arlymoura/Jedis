@@ -4,10 +4,15 @@
   <div class="col float-end">
     <%= link_to "Novo Municipe", new_city_path, class: "btn btn-success" %>
   </div>
-  <div class="col">
-    <%= form_with( url: cities_path ,method: :get , remote: true) do |f| %>
-      <%= f.text_field :search %>
-      <%= f.submit "Pesquisar", class: 'btn btn-primary' %>
+  <div class="col-md-4">
+    <%= search_form_for @q do |ff| %>
+      <div class="form-group">
+        <%= ff.text_field :full_name_eq, :class => "form-control", :placeholder => "Digite o nome do municipe" %>
+      </div>
+
+      <%= ff.submit :class => "btn btn-primary btn-block" %>
+
+      <a href=<%= cities_path %> class="btn btn-default btn-block">Limpar Filtros</a>
     <% end %>
   </div>
 </div>
@@ -41,3 +46,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @cities, renderer: BootstrapPagination::Rails %>

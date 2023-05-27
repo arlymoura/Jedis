@@ -36,13 +36,13 @@ RSpec.describe City do
       end
       let(:params) do
         {
-          full_name:    full_name,
-          cpf:          cpf,
-          cns:          cns,
-          email:        email,
-          phone_number: phone_number,
-          birth_date:   birth_date,
-          address:      address
+          full_name:          full_name,
+          cpf:                cpf,
+          cns:                cns,
+          email:              email,
+          phone_number:       phone_number,
+          birth_date:         birth_date,
+          address_attributes: address
         }
       end
 

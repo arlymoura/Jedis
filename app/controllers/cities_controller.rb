@@ -4,7 +4,11 @@ class CitiesController < ApplicationController
   before_action :set_city, only: %i[edit update]
 
   def index
-    @cities = City.all.includes(:address)
+    @q = City.ransack(params[:q])
+    @cities = @q.result(distinct: true).includes(:address).paginate(
+      page:     params[:page],
+      per_page: params[:per_page]
+    )
   end
 
   def new
