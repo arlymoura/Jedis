@@ -30,6 +30,8 @@ module CitiesValidators
   end
 
   def cns_is_valid?
+    return errors.add(:cns, 'CNS invalido') if cns.blank?
+
     return errors.add(:cns, 'CNS invalido') unless CnsValidator.validate(cns)
   end
 end
